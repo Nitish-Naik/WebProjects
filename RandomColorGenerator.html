@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomColor</title>
+    <link rel="stylesheet" href="style1.css">
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    margin: 50px auto;
+    margin-top: 30vh;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.color-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h3>Generate a random color</h3>
+        <br />
+        <button>Generate Color</button>
+        <br />
+        <div class="color-box"></div>
+    </div>
+
+    <script>
+        let btn = document.querySelector("button");
+
+        btn.addEventListener("mouseover", function() {
+            let h3 = document.querySelector("h3");
+            let randomColor = getRandomColor();
+            h3.innerText = randomColor;
+            let div = document.querySelector(".color-box");
+            div.style.backgroundColor = randomColor;
+            console.log("color updated")
+        });
+
+        function getRandomColor() {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+
+            let color = "rgb("+ r + ", " + g + ", " + b + ")";
+            return color;
+        }
+    </script>
+</body>
+</html>
